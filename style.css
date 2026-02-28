@@ -1,88 +1,320 @@
+/* ========== CSS Variables ========== */
+:root {
+    --purple-50: #faf5ff;
+    --purple-100: #f3e8ff;
+    --purple-200: #e9d5ff;
+    --purple-300: #d8b4fe;
+    --purple-400: #c084fc;
+    --purple-500: #a855f7;
+    --purple-600: #9333ea;
+    --purple-700: #7e22ce;
+    --purple-800: #6b21a8;
+    --purple-900: #581c87;
+    --gray-50: #fafafa;
+    --gray-100: #f4f4f5;
+    --gray-200: #e4e4e7;
+    --gray-300: #d4d4d8;
+    --gray-700: #3f3f46;
+    --gray-800: #27272a;
+    --gray-900: #18181b;
+    --radius: 12px;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+}
+/* ========== Reset & Base ========== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 body {
-    font-family: Segoe UI, Arial, sans-serif;
-    background: #f8f8fa;
-    padding: 0 2em;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--purple-50) 0%, #f0e6ff 50%, var(--purple-100) 100%);
+    min-height: 100vh;
+    padding: 2em;
+    color: var(--gray-800);
+    line-height: 1.6;
 }
-
-h1, h2 {
-    color: #303050;
+/* ========== Container ========== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
 }
-
+/* ========== Header ========== */
+h1 {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.2em;
+    letter-spacing: -0.02em;
+}
+.subtitle {
+    text-align: center;
+    color: var(--purple-400);
+    font-size: 1em;
+    margin-bottom: 2em;
+    font-weight: 500;
+}
+h2 {
+    color: var(--purple-800);
+    font-size: 1.35em;
+    font-weight: 700;
+    margin-bottom: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+h2 .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--purple-500), var(--purple-700));
+    color: #fff;
+    border-radius: 10px;
+    font-size: 0.85em;
+    font-weight: 700;
+}
+/* ========== Sections (Cards) ========== */
 .section {
     background: #fff;
-    border-radius: 8px;
-    padding: 1.5em 2em;
-    margin: 2em 0;
-    box-shadow: 0 2px 12px #0001;
+    border-radius: var(--radius);
+    padding: 2em 2.5em;
+    margin-bottom: 1.5em;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--purple-100);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
-
-label {
-    display: inline-block;
-    width: 215px;
-    vertical-align: top;
-    margin-bottom: 0.2em;
+.section:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
 }
-
+/* ========== Form Row Layout ========== */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.85em;
+    gap: 1em;
+}
+.form-row label {
+    flex: 0 0 220px;
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: 0.92em;
+}
+.form-row input,
+.form-row select {
+    flex: 1;
+    max-width: 260px;
+}
+/* ========== Inputs & Selects ========== */
 input, select {
-    width: 185px;
-    margin-bottom: 0.65em;
+    padding: 0.6em 0.9em;
+    border: 2px solid var(--purple-200);
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-family: inherit;
+    color: var(--gray-800);
+    background: var(--purple-50);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    outline: none;
+    width: 100%;
 }
-
+input:focus, select:focus {
+    border-color: var(--purple-500);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+    background: #fff;
+}
+input:hover, select:hover {
+    border-color: var(--purple-300);
+}
 input[type="number"] {
     text-align: right;
+    font-variant-numeric: tabular-nums;
 }
-
-.results {
-    background: #e4ffe7;
-    padding: 1.25em 2em;
-    border-radius: 8px;
-    margin-top: 2em;
-}
-
-.warn {
-    color: #bb0404;
-    font-weight: bold;
-}
-
-.mat-table {
-    width: 92%;
-    background: #fafad4;
-    font-size: 0.97em;
-    border-collapse: collapse;
-    margin-bottom: 0.7em;
-}
-
-.mat-table th, .mat-table td {
-    border: 1px solid #eee;
-    padding: 2px 7px;
-}
-
 select {
-    width: 187px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239333ea' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 2.2em;
 }
-
-button {
-    font-size: 1.1em;
-    padding: 0.4em 1.35em;
-    border-radius: 4px;
-    background: #374ea3;
+/* ========== Material Table ========== */
+.mat-table-wrapper {
+    overflow-x: auto;
+    margin: 1em 0 1.5em;
+    border-radius: 10px;
+    border: 1px solid var(--purple-200);
+}
+.mat-table {
+    width: 100%;
+    font-size: 0.88em;
+    border-collapse: collapse;
+    background: #fff;
+}
+.mat-table thead {
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
     color: #fff;
+}
+.mat-table th {
+    padding: 0.75em 1em;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     border: none;
 }
-
-button:hover {
-    background: #203179;
-    cursor: pointer;
+.mat-table td {
+    padding: 0.55em 1em;
+    border-bottom: 1px solid var(--purple-100);
+    color: var(--gray-700);
 }
-
-@media (max-width: 600px) {
-    .section {
+.mat-table tbody tr {
+    transition: background 0.15s ease;
+}
+.mat-table tbody tr:hover {
+    background: var(--purple-50);
+}
+.mat-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+}
+.mat-table tbody tr:nth-child(even):hover {
+    background: var(--purple-50);
+}
+/* ========== Button ========== */
+.btn-wrapper {
+    text-align: center;
+    margin: 2em 0;
+}
+button {
+    font-size: 1.1em;
+    font-weight: 700;
+    font-family: inherit;
+    padding: 0.75em 2.5em;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(147, 51, 234, 0.35);
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+button:hover {
+    background: linear-gradient(135deg, var(--purple-700), var(--purple-900));
+    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.45);
+    transform: translateY(-2px);
+}
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(147, 51, 234, 0.3);
+}
+/* ========== Results ========== */
+.results {
+    background: linear-gradient(135deg, #f3e8ff, #ede5ff);
+    padding: 2em 2.5em;
+    border-radius: var(--radius);
+    margin-top: 1.5em;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--purple-200);
+}
+.results h2 {
+    color: var(--purple-800);
+    margin-bottom: 0.5em;
+}
+.results h3 {
+    color: var(--purple-700);
+    margin-top: 1em;
+}
+.results h4 {
+    color: var(--purple-700);
+    font-size: 1.05em;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid var(--purple-200);
+}
+.results b {
+    color: var(--purple-800);
+}
+.warn {
+    color: #dc2626;
+    font-weight: bold;
+    background: #fef2f2;
+    padding: 0.6em 1em;
+    border-radius: 8px;
+    border-left: 4px solid #dc2626;
+    margin-top: 0.5em;
+}
+.success-badge {
+    color: #16a34a;
+    font-weight: 700;
+    font-size: 1.15em;
+    margin-top: 1em;
+    padding: 0.6em 1em;
+    background: #f0fdf4;
+    border-radius: 8px;
+    border-left: 4px solid #16a34a;
+}
+/* ========== Manual input spans ========== */
+#worm_manual .form-row,
+#gear_manual .form-row {
+    padding-left: 1em;
+    border-left: 3px solid var(--purple-300);
+    margin-left: 0.5em;
+}
+/* ========== Divider ========== */
+.section-divider {
+    border: none;
+    border-top: 2px dashed var(--purple-200);
+    margin: 1.5em 0;
+}
+/* ========== Responsive ========== */
+@media (max-width: 700px) {
+    body {
         padding: 1em;
     }
-    label, input, select {
+    
+h1 {
+        font-size: 1.6em;
+    }
+
+    .section {
+        padding: 1.25em 1.25em;
+    }
+
+    .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3em;
+    }
+
+    .form-row label {
+        flex: none;
         width: 100%;
     }
-    .mat-table {
+
+    .form-row input,
+    .form-row select {
+        max-width: 100%;
         width: 100%;
+    }
+
+    .mat-table {
+        font-size: 0.8em;
+    }
+
+    .results {
+        padding: 1.25em;
     }
 }
