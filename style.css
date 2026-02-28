@@ -1,0 +1,88 @@
+body {
+    font-family: Segoe UI, Arial, sans-serif;
+    background: #f8f8fa;
+    padding: 0 2em;
+}
+
+h1, h2 {
+    color: #303050;
+}
+
+.section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5em 2em;
+    margin: 2em 0;
+    box-shadow: 0 2px 12px #0001;
+}
+
+label {
+    display: inline-block;
+    width: 215px;
+    vertical-align: top;
+    margin-bottom: 0.2em;
+}
+
+input, select {
+    width: 185px;
+    margin-bottom: 0.65em;
+}
+
+input[type="number"] {
+    text-align: right;
+}
+
+.results {
+    background: #e4ffe7;
+    padding: 1.25em 2em;
+    border-radius: 8px;
+    margin-top: 2em;
+}
+
+.warn {
+    color: #bb0404;
+    font-weight: bold;
+}
+
+.mat-table {
+    width: 92%;
+    background: #fafad4;
+    font-size: 0.97em;
+    border-collapse: collapse;
+    margin-bottom: 0.7em;
+}
+
+.mat-table th, .mat-table td {
+    border: 1px solid #eee;
+    padding: 2px 7px;
+}
+
+select {
+    width: 187px;
+}
+
+button {
+    font-size: 1.1em;
+    padding: 0.4em 1.35em;
+    border-radius: 4px;
+    background: #374ea3;
+    color: #fff;
+    border: none;
+}
+
+button:hover {
+    background: #203179;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 1em;
+    }
+    label, input, select {
+        width: 100%;
+    }
+    .mat-table {
+        width: 100%;
+    }
+}
